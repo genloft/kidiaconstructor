@@ -35,6 +35,9 @@ export interface GameState {
     isTraining?: boolean;
     hasSeenSingularityModal?: boolean;
     hasSeenIntroTour?: boolean; // NEW
+    hasSeenWelcomeModal?: boolean;
+    hasWonGame?: boolean;
+    stageIntroAck?: boolean;
     baseMetrics: Metrics;
     logs: LogEvent[];
 }

@@ -102,7 +102,6 @@ export const PIECES: Piece[] = [
         stage: 2,
         category: 'Entrenamiento',
         recommendedSlot: 'Entrenamiento',
-        prerequisites: ['p_layers'],
         effects: { accuracy: 15, complexity: 10 },
         tooltip: 'Apaga neuronas al azar mientras entrena para que ninguna se vuelva "floja".',
         curiousFact: 'Obliga al cerebro artificial a trabajar en equipo porque siempre le falta gente.'
@@ -123,7 +122,6 @@ export const PIECES: Piece[] = [
         stage: 2,
         category: 'Salida',
         recommendedSlot: 'Salida',
-        prerequisites: ['p_layers'],
         effects: { performance: -10, complexity: 15 },
         tooltip: 'La pieza que te dice: "100% Gato, 0% Coche".',
         curiousFact: 'Durante años, clasificar perros contra magdalenas fue el gran reto de la visión por ordenador.'

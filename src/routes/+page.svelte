@@ -6,6 +6,16 @@
 	import ModalReset from "$lib/components/ModalReset.svelte";
 	import DevPanel from "$lib/components/DevPanel.svelte";
 	import TutorialOverlay from "$lib/components/TutorialOverlay.svelte";
+	import ModalWelcome from "$lib/components/ModalWelcome.svelte";
+	import ModalVictory from "$lib/components/ModalVictory.svelte";
+	import ModalStageIntro from "$lib/components/ModalStageIntro.svelte";
+	import { game } from "$lib/stores/game";
+	import { onMount } from "svelte";
+
+	onMount(() => {
+		// Verify if it's the first time so we can show the Welcome Modal
+		game.initCheck();
+	});
 </script>
 
 <svelte:head>
@@ -23,6 +33,9 @@
 <ModalSingularity />
 <ModalReset />
 <TutorialOverlay />
+<ModalWelcome />
+<ModalStageIntro />
+<ModalVictory />
 <DevPanel />
 
 <style>

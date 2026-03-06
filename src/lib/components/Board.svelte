@@ -64,10 +64,6 @@
     <!-- Header: in normal flow now -->
     <div class="board-header">
         <div class="stage-info">
-            <div class="logo-container">
-                <h1>Kidia</h1>
-            </div>
-            <div class="stage-divider"></div>
             <div class="stage-wrapper">
                 <span class="label">{$t.stage}</span>
                 <div class="stage-badge">{$game.currentStage}</div>
@@ -203,41 +199,6 @@
         display: flex;
         align-items: center;
         gap: 0.75rem;
-    }
-    .logo-container {
-        display: flex;
-        align-items: center;
-        background: transparent;
-        padding: 0;
-        border: none;
-        box-shadow: none;
-    }
-    h1 {
-        margin: 0;
-        font-size: 2.2rem;
-        font-weight: 800;
-        font-family:
-            "Outfit",
-            system-ui,
-            -apple-system,
-            sans-serif;
-        background: linear-gradient(
-            90deg,
-            #00f0ff 0%,
-            /* Intense Cyan */ #5271ff 35%,
-            /* Intense Blue/Periwinkle */ #b026ff 70%,
-            /* Intense Purple */ #ff1b6b 100% /* Intense Pink/Magenta */
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        letter-spacing: -1px;
-    }
-    .stage-divider {
-        width: 1px;
-        height: 32px;
-        background: var(--border-highlight);
-        margin: 0 0.5rem;
     }
     .stage-wrapper {
         display: flex;

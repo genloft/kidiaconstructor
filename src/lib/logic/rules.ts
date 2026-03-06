@@ -85,7 +85,7 @@ export const STAGE_OBJECTIVES: Record<StageId, StageObjective[]> = {
         }
     ],
     2: [
-        { id: '2_all_slots', description: 'Llena los 5 slots', isMet: (st) => Object.values(st.placements).filter(Boolean).length === 5 },
+        { id: '2_upgrade_brain', description: 'Moderniza el Cerebro (Usa Capas Ocultas)', isMet: (st) => Object.values(st.placements).includes('p_layers') },
         { id: '2_acc', description: 'Precisión mayor a 60', isMet: (_, metrics) => metrics.accuracy > 60 },
         {
             id: '2_overfitting', description: 'Impide Overfitting (Usa Split o Regularización)', isMet: (st) =>

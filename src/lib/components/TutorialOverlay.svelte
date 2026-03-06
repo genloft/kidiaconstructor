@@ -138,30 +138,71 @@
                 message: $t.tut?.stg1doneMsg,
                 targetId: "btn-train",
             };
-        } else if (g.currentStage === 2 && !g.placements.Entrenamiento) {
-            return {
-                title: $t.tut?.stg2Title,
-                message: $t.tut?.stg2Msg,
-                targetId: "lib-p_regularization",
-            };
-        } else if (g.currentStage === 3 && !g.placements.Cerebro) {
-            return {
-                title: $t.tut?.stg3Title,
-                message: $t.tut?.stg3Msg,
-                targetId: "lib-p_model_transformer",
-            };
-        } else if (g.currentStage === 4 && !g.placements.Datos) {
-            return {
-                title: $t.tut?.stg4Title,
-                message: $t.tut?.stg4Msg,
-                targetId: "lib-p_multimodal_in",
-            };
-        } else if (g.currentStage === 5 && !g.placements.Datos) {
-            return {
-                title: $t.tut?.stg5Title,
-                message: $t.tut?.stg5Msg,
-                targetId: "lib-p_exascale",
-            };
+        } else if (g.currentStage === 2) {
+            if (g.placements.Cerebro !== "p_layers") {
+                return {
+                    title: $t.tut?.stg2CerebroTitle,
+                    message: $t.tut?.stg2CerebroMsg,
+                    targetId: "lib-p_layers",
+                };
+            } else if (
+                !g.placements.Entrenamiento ||
+                g.placements.Entrenamiento !== "p_regularization"
+            ) {
+                return {
+                    title: $t.tut?.stg2RegTitle,
+                    message: $t.tut?.stg2RegMsg,
+                    targetId: "lib-p_regularization",
+                };
+            }
+        } else if (g.currentStage === 3) {
+            if (g.placements.Datos !== "p_tokenizer") {
+                return {
+                    title: $t.tut?.stg3DatosTitle,
+                    message: $t.tut?.stg3DatosMsg,
+                    targetId: "lib-p_tokenizer",
+                };
+            } else if (g.placements.Cerebro !== "p_model_transformer") {
+                return {
+                    title: $t.tut?.stg3BrainTitle,
+                    message: $t.tut?.stg3BrainMsg,
+                    targetId: "lib-p_model_transformer",
+                };
+            }
+        } else if (g.currentStage === 4) {
+            if (g.placements.Datos !== "p_multimodal_in") {
+                return {
+                    title: $t.tut?.stg4DatosTitle,
+                    message: $t.tut?.stg4DatosMsg,
+                    targetId: "lib-p_multimodal_in",
+                };
+            } else if (
+                g.placements.Entrenamiento !== "p_rlhf" &&
+                g.placements.Examen !== "p_human_eval"
+            ) {
+                return {
+                    title: $t.tut?.stg4Title,
+                    message: $t.tut?.stg4Msg,
+                    targetId: "lib-p_rlhf", // Just points to one of them as a hint
+                };
+            }
+        } else if (g.currentStage === 5) {
+            if (g.placements.Datos !== "p_exascale") {
+                return {
+                    title: $t.tut?.stg5DatosTitle,
+                    message: $t.tut?.stg5DatosMsg,
+                    targetId: "lib-p_exascale",
+                };
+            } else if (
+                !g.placements.Cerebro ||
+                g.placements.Cerebro !== "p_moe"
+            ) {
+                return {
+                    title: $t.tut?.stg5Title,
+                    message: $t.tut?.stg5Msg,
+                    targetId: "lib-p_moe",
+                };
+            }
         }
         return null;
     }

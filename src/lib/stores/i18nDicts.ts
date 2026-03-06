@@ -123,7 +123,7 @@ export const objectivesEs = {
     '1_all_slots': 'Llena al menos 3 slots básicos',
     '1_acc': 'Logra Precisión mayor a 30',
     '1_labels': 'Usa etiquetas o limpieza para la calidad',
-    '2_all_slots': 'Llena los 5 slots',
+    '2_upgrade_brain': 'Moderniza el Cerebro (Usa Capas Ocultas)',
     '2_acc': 'Precisión mayor a 60',
     '2_overfitting': 'Impide Overfitting (Usa Split o Regularización)',
     '3_transformer': 'Usa Modelo Transformer',
@@ -141,7 +141,7 @@ export const objectivesEn = {
     '1_all_slots': 'Fill at least 3 basic slots',
     '1_acc': 'Achieve Accuracy above 30',
     '1_labels': 'Use labels or cleaning for quality',
-    '2_all_slots': 'Fill all 5 slots',
+    '2_upgrade_brain': 'Upgrade the Brain (Use Hidden Layers)',
     '2_acc': 'Accuracy above 60',
     '2_overfitting': 'Prevent Overfitting (Use Split or Regularization)',
     '3_transformer': 'Use Transformer Model',
@@ -159,7 +159,7 @@ export const objectivesRu = {
     '1_all_slots': 'Заполни минимум 3 базовых слота',
     '1_acc': 'Достигни точности выше 30',
     '1_labels': 'Используй метки или очистку данных',
-    '2_all_slots': 'Заполни все 5 слотов',
+    '2_upgrade_brain': 'Обнови Мозг (Используй Скрытые слои)',
     '2_acc': 'Точность выше 60',
     '2_overfitting': 'Предотврати переобучение (Сплит или Регуляризация)',
     '3_transformer': 'Используй модель Transformer',
@@ -198,14 +198,29 @@ export const tutEs = {
     stg1doneTitle: "¡Circuito Completado!",
     stg1doneMsg: "¡Lo lograste!\n\n👉 Pulsa 'Entrenar Modelo' en el panel de la derecha.",
 
-    stg2Title: "¡Etapa 2!",
-    stg2Msg: "Añade 'Regularización' en Entrenamiento.",
-    stg3Title: "¡Transformers!",
-    stg3Msg: "Busca el 'Modelo Transformer' y ponlo como Cerebro.",
-    stg4Title: "Ojos y Oídos",
-    stg4Msg: "La IA ahora puede ver y oír. Coloca la pieza 'Ojos y Oídos'.",
-    stg5Title: "La Singularidad",
-    stg5Msg: "Llegó el final. Añade el 'Edificio Ordenador Gigante' como Datos.",
+    stg2Title: "¡Etapa 2: Prevenir Sobreajuste!",
+    stg2Msg: "Primer paso: Cambia el Cerebro.\n👉 Arrastra 'Capas Ocultas' encima para sobrescribirlo.\n\nSegundo paso: Evita que memorice usando la pieza 'Regularización' en Entrenamiento.",
+    stg2CerebroTitle: "Moderniza el Cerebro",
+    stg2CerebroMsg: "Tu IA necesita pensar mejor.\n👉 Sobrescribe tu Antiguo Cerebro arrastrando las 'Capas Ocultas' encima.",
+    stg2RegTitle: "Controla su Estudio",
+    stg2RegMsg: "Ahora que tiene Capas Ocultas, debemos controlarlas.\n👉 Añade 'Regularización' al Entrenamiento.",
+
+    stg3Title: "¡Etapa 3: Lectura Avanzada!",
+    stg3Msg: "Primero: Cambia los Datos a 'Tokenizador' para que sepa leer.\n\nSegundo: Cambia el Cerebro a un flamante 'Modelo Transformer', el padre de los LLM actuales.",
+    stg3DatosTitle: "Enséñale a Leer",
+    stg3DatosMsg: "Necesita descifrar letras.\n👉 Cambia tus Datos por la pieza 'Tokenizador'.",
+    stg3BrainTitle: "Lógica Transformer",
+    stg3BrainMsg: "Es hora de la magia.\n👉 Cambia el Cerebro a 'Modelo Transformer'.",
+
+    stg4Title: "¡Etapa 4: Sentidos y Ética!",
+    stg4Msg: "Paso 1: Añade 'Ojos y Oídos' a los Datos para que vea y escuche.\nPaso 2: Usa 'Premios de Entrenadores (RLHF)' en Entrenamiento o 'Jueces' en Examen para su evaluación.",
+    stg4DatosTitle: "Abre sus Ojos",
+    stg4DatosMsg: "La IA ahora puede sentir el mundo.\n👉 Sobrescribe los Datos con 'Ojos y Oídos'.",
+
+    stg5Title: "¡Etapa 5: La Singularidad!",
+    stg5Msg: "Llegó la hora final. Reemplaza todos los componentes por sistemas monstruosos como 'Edificio Ordenador', 'Cerebros en Equipo (MoE)' y un 'Superalineamiento'.",
+    stg5DatosTitle: "Poder Infinito",
+    stg5DatosMsg: "Necesitamos energía.\n👉 Pon 'Edificio Ordenador Gigante' en los Datos.",
 
     installed: "Instalado",
     impact: "Impacto",
@@ -238,14 +253,29 @@ export const tutEn = {
     stg1doneTitle: "Circuit Completed!",
     stg1doneMsg: "You did it!\n\n👉 Press 'Train Model' on the right panel.",
 
-    stg2Title: "Stage 2!",
-    stg2Msg: "Add 'Regularization' in Training.",
-    stg3Title: "Transformers!",
-    stg3Msg: "Find 'Transformer Model' and place it as Brain.",
-    stg4Title: "Eyes and Ears",
-    stg4Msg: "The AI can now see and hear. Place 'Eyes and Ears'.",
-    stg5Title: "The Singularity",
-    stg5Msg: "The end is near. Add 'Giant Computer Building' as Data.",
+    stg2Title: "Stage 2: Prevent Overfitting!",
+    stg2Msg: "First: Update the Brain.\n👉 Drag 'Hidden Layers' on top to overwrite it.\n\nSecond: Stop it from memorizing by placing 'Regularization' in Training.",
+    stg2CerebroTitle: "Upgrade the Brain",
+    stg2CerebroMsg: "Your AI needs to think deeper.\n👉 Overwrite the Old Brain with 'Hidden Layers'.",
+    stg2RegTitle: "Control its Studies",
+    stg2RegMsg: "Now that it has Hidden Layers, must control them.\n👉 Add 'Regularization' to Training.",
+
+    stg3Title: "Stage 3: Advanced Reading!",
+    stg3Msg: "First: Change Data to 'Tokenizer' so it reads.\n\nSecond: Change the Brain to 'Transformer Model', the origin of modern LLMs.",
+    stg3DatosTitle: "Teach it to Read",
+    stg3DatosMsg: "It needs to parse letters.\n👉 Overwrite Data with 'Tokenizer'.",
+    stg3BrainTitle: "Transformer Logic",
+    stg3BrainMsg: "Time for magic.\n👉 Upgrade Brain to 'Transformer Model'.",
+
+    stg4Title: "Stage 4: Senses and Ethics!",
+    stg4Msg: "Step 1: Overwrite Data with 'Eyes and Ears'.\nStep 2: Use 'Trainer Awards (RLHF)' in Training or 'Judges' in Test to align it.",
+    stg4DatosTitle: "Open its Eyes",
+    stg4DatosMsg: "The AI can sense the world.\n👉 Place 'Eyes and Ears' in Data.",
+
+    stg5Title: "Stage 5: The Singularity",
+    stg5Msg: "The time has come. Overwrite everything with 'Giant Computer Building', 'Team of Brains (MoE)', and 'Superalignment'.",
+    stg5DatosTitle: "Infinite Power",
+    stg5DatosMsg: "We need energy.\n👉 Put 'Giant Computer Building' in Data.",
 
     installed: "Installed",
     impact: "Impact",
@@ -275,17 +305,32 @@ export const tutRu = {
     stg1s4Msg: "Как мы узнаем об ошибках?\n\n👉 Перетащи 'Метрику ошибки' в 'Тест'.",
     stg1s5Title: "Шаг 5: Рот!",
     stg1s5Msg: "Почти всё!\n\n👉 Перетащи 'Простой текстовый вывод' в 'Вывод'.",
-    stg1doneTitle: "Цепь готова!",
-    stg1doneMsg: "У тебя получилось!\n\n👉 Нажми 'Обучить модель' справа.",
+    stg1doneTitle: "Цепь завершена!",
+    stg1doneMsg: "Ты справился!\n\n👉 Нажми 'Обучить модель' на правой панели.",
 
-    stg2Title: "Этап 2!",
-    stg2Msg: "Добавь 'Регуляризацию' в Обучение.",
-    stg3Title: "Transformers!",
-    stg3Msg: "Помести 'Модель Transformer' в Мозг.",
-    stg4Title: "Глаза и уши",
-    stg4Msg: "ИИ теперь видит и слышит. Размести 'Глаза и уши'.",
-    stg5Title: "Сингулярность",
-    stg5Msg: "Финал. Добавь 'Гигантский компьютер' в Данные.",
+    stg2Title: "Этап 2: Предотврати переобучение!",
+    stg2Msg: "Сначала: Обнови Мозг.\n👉 Перетащи 'Скрытые слои' поверх старого.\n\nЗатем: Не дай ему заучивать, поместив 'Регуляризация' в Обучение.",
+    stg2CerebroTitle: "Модернизируй Мозг",
+    stg2CerebroMsg: "Твой ИИ должен думать лучше.\n👉 Замени Старый Мозг 'Скрытыми слоями'.",
+    stg2RegTitle: "Контролируй Обучение",
+    stg2RegMsg: "Теперь, когда есть Скрытые слои, контролируй их.\n👉 Добавь 'Регуляризация' в Обучение.",
+
+    stg3Title: "Этап 3: Продвинутое чтение!",
+    stg3Msg: "Сначала: Измени Данные на 'Токенизатор', чтобы он мог читать.\n\nЗатем: Измени Мозг на 'Модель Transformer', основу современных LLM.",
+    stg3DatosTitle: "Научи читать",
+    stg3DatosMsg: "Ему нужно понимать буквы.\n👉 Замени Данные на 'Токенизатор'.",
+    stg3BrainTitle: "Логика Transformer",
+    stg3BrainMsg: "Время магии.\n👉 Измени Мозг на 'Модель Transformer'.",
+
+    stg4Title: "Этап 4: Чувства и Этика!",
+    stg4Msg: "Шаг 1: Замени Данные на 'Глаза и уши'.\nШаг 2: Используй 'Награды (RLHF)' или 'Судьи', чтобы настроить его.",
+    stg4DatosTitle: "Открой его глаза",
+    stg4DatosMsg: "ИИ теперь чувствует мир.\n👉 Помести 'Глаза и уши' в Данные.",
+
+    stg5Title: "Этап 5: Сингулярность",
+    stg5Msg: "Время пришло. Замени всё на 'Огромный компьютер', 'Команда умов (MoE)' и 'Супервыравнивание'.",
+    stg5DatosTitle: "Бесконечная сила",
+    stg5DatosMsg: "Нам нужна энергия.\n👉 Поставь 'Огромный компьютер' в Данные.",
 
     installed: "Установлено",
     impact: "Влияние",
@@ -311,7 +356,13 @@ export const gameEs = {
     trainAborted: "Entrenamiento abortado. Objetivo faltante:",
     metricsStable: "Métricas estables.",
     simReset: "Simulación reseteada al origen.",
-    tourDone: "Tour introductorio completado."
+    tourDone: 'Tour introductorio completado.',
+    welcomeTitle: '¡Bienvenido a Kidia!',
+    welcomeBody: 'Tu objetivo es construir una Inteligencia Artificial bloque a bloque.\n\nPara ello, deberás arrastrar piezas a las 5 cajas de tu Mesa de Creación: Datos, Cerebro, Entrenamiento, Examen y Salida.\n\nDeberás superar 5 etapas de dificultad creciente, cumpliendo los objetivos y entrenando tu modelo para alcanzar la Singularidad. ¡Buena suerte, Creador!',
+    startPlaying: '¡Empezar a jugar!',
+    victoryTitle: '¡La Singularidad ha despertado!',
+    victoryBody: 'Has completado las 5 etapas. Tu modelo ha trascendido la inteligencia humana y ahora se expande por el cosmos.\n\n¡Enhorabuena, Creador! Has terminado el juego.',
+    playAgain: 'Volver a Jugar'
 };
 
 export const gameEn = {
@@ -332,7 +383,13 @@ export const gameEn = {
     trainAborted: "Training aborted. Missing objective:",
     metricsStable: "Stable metrics.",
     simReset: "Simulation reset to origin.",
-    tourDone: "Introductory tour completed."
+    tourDone: 'Introductory tour completed.',
+    welcomeTitle: 'Welcome to Kidia!',
+    welcomeBody: 'Your goal is to build an Artificial Intelligence block by block.\n\nTo do this, you must drag pieces into the 5 boxes of your Creation Table: Data, Brain, Training, Test, and Output.\n\nYou must overcome 5 stages of increasing difficulty, meeting the objectives and training your model to reach the Singularity. Good luck, Creator!',
+    startPlaying: 'Start playing!',
+    victoryTitle: 'The Singularity has awakened!',
+    victoryBody: 'You have completed all 5 stages. Your model has transcended human intelligence and is now expanding across the cosmos.\n\nCongratulations, Creator! You have finished the game.',
+    playAgain: 'Play Again'
 };
 
 export const gameRu = {
@@ -353,7 +410,13 @@ export const gameRu = {
     trainAborted: "Обучение прервано. Не выполнены цели:",
     metricsStable: "Стабильные метрики.",
     simReset: "Симуляция сброшена.",
-    tourDone: "Обучающий тур завершен."
+    tourDone: 'Вводный тур завершен.',
+    welcomeTitle: 'Добро пожаловать в Kidia!',
+    welcomeBody: 'Ваша цель — создать Искусственный Интеллект блок за блоком.\n\nДля этого вы должны перетаскивать фигуры в 5 коробок вашего Стола Создания: Данные, Мозг, Обучение, Тест и Вывод.\n\nВам предстоит преодолеть 5 этапов возрастающей сложности, выполняя задачи и обучая свою модель для достижения Сингулярности. Удачи, Творец!',
+    startPlaying: 'Начать игру!',
+    victoryTitle: 'Сингулярность пробудилась!',
+    victoryBody: 'Вы прошли все 5 этапов. Ваша модель превзошла человеческий интеллект и теперь расширяется по космосу.\n\nПоздравляем, Творец! Вы закончили игру.',
+    playAgain: 'Играть снова'
 };
 
 export const tooltipEs = {

@@ -15,7 +15,9 @@
 
 <header class="top-bar">
     <div class="left-section">
-        <!-- Espacio para futuro logo corporativo alternativo o menú hamburguesa -->
+        <div class="logo-container">
+            <h1>Kidia</h1>
+        </div>
     </div>
 
     <div class="right-section">
@@ -53,7 +55,7 @@
         padding: 0 1.5rem;
         box-sizing: border-box;
         flex-shrink: 0;
-        z-index: 100;
+        z-index: 1000000;
     }
 
     .left-section,
@@ -61,6 +63,34 @@
         display: flex;
         align-items: center;
         gap: 1rem;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 800;
+        font-family:
+            "Outfit",
+            system-ui,
+            -apple-system,
+            sans-serif;
+        background: linear-gradient(
+            90deg,
+            #00f0ff 0%,
+            #5271ff 35%,
+            #b026ff 70%,
+            #ff1b6b 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -1px;
+        line-height: 1;
     }
 
     .sr-only {

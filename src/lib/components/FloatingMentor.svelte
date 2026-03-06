@@ -179,7 +179,7 @@
 <style>
     .mentor-widget {
         position: fixed;
-        bottom: 1.5rem;
+        top: 80px;
         right: 1.5rem;
         z-index: 50;
         display: flex;

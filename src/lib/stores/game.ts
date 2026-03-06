@@ -1,11 +1,26 @@
 import { writable, derived, get } from 'svelte/store';
 import type { GameState, SlotCategory, StageId, Piece } from '../types';
-import { loadState, saveState, clearState, DEFAULT_STATE } from '../logic/storage';
+import { loadState, saveState, clearState } from '../logic/storage';
 import * as rules from '../logic/rules';
 import { PIECES } from '../data/pieces';
 import { t } from './i18n';
 
+const DEFAULT_STATE: GameState = {
+    version: 1,
+    currentStage: 1,
+    unlockedPieces: [],
+    placements: {},
+    baseMetrics: { accuracy: 0, performance: 0, complexity: 0 },
+    logs: [],
+    hasSeenIntroTour: false,
+    hasSeenWelcomeModal: false,
+    hasWonGame: false,
+    stageIntroAck: true
+};
+
 export const showSingularityModal = writable(false);
+export const showWelcomeModal = writable(false);
+export const showVictoryModal = writable(false);
 export const pieceFeedback = writable<{ piece: Piece | null; slot: SlotCategory | null; visible: boolean }>({ piece: null, slot: null, visible: false });
 
 function createGameStore() {
@@ -36,6 +51,8 @@ function createGameStore() {
 
     return {
         subscribe: state.subscribe,
+        set: state.set,
+        update: state.update,
 
         selectPiece: (pieceId: string | undefined) => {
             state.update(s => ({ ...s, selectedPieceId: pieceId }));
@@ -153,23 +170,35 @@ function createGameStore() {
                     successMessage = `${_tAsync.game?.trainDone || "Entrenamiento concluido."}${evaluationNote}`;
 
                     const check = rules.checkStageCompletion(s.currentStage, s, metrics);
-                    if (check && s.currentStage < 5) {
-                        const nextStage = s.currentStage + 1 as StageId;
-                        newStageMessage = `${_tAsync.game?.advancedStage || "¡Avanzaste a la Etapa"} ${nextStage}!`;
+                    if (check) {
+                        if (s.currentStage < 5) {
+                            const nextStage = s.currentStage + 1 as StageId;
+                            newStageMessage = `${_tAsync.game?.advancedStage || "¡Avanzaste a la Etapa"} ${nextStage}!`;
 
-                        let hasSeen = s.hasSeenSingularityModal;
-                        if (nextStage === 5 && !hasSeen) {
-                            showSingularityModal.set(true);
-                            hasSeen = true;
+                            let hasSeen = s.hasSeenSingularityModal;
+                            if (nextStage === 5 && !hasSeen) {
+                                showSingularityModal.set(true);
+                                hasSeen = true;
+                            }
+
+                            return {
+                                ...s,
+                                isTraining: false,
+                                hasSeenSingularityModal: hasSeen,
+                                currentStage: nextStage,
+                                unlockedPieces: rules.getUnlockedPieces(nextStage),
+                                stageIntroAck: false
+                            };
+                        } else {
+                            // Won the game!
+                            showVictoryModal.set(true);
+                            successMessage = _tAsync.game?.victoryTitle || "¡Victoria!";
+                            return {
+                                ...s,
+                                isTraining: false,
+                                hasWonGame: true
+                            };
                         }
-
-                        return {
-                            ...s,
-                            isTraining: false,
-                            hasSeenSingularityModal: hasSeen,
-                            currentStage: nextStage,
-                            unlockedPieces: rules.getUnlockedPieces(nextStage)
-                        };
                     } else {
                         const objs = rules.STAGE_OBJECTIVES[s.currentStage] || [];
                         const missing = objs.filter(o => !o.isMet(s, metrics));
@@ -196,7 +225,8 @@ function createGameStore() {
                 return {
                     ...s,
                     currentStage: newStage,
-                    unlockedPieces: rules.getUnlockedPieces(newStage)
+                    unlockedPieces: rules.getUnlockedPieces(newStage),
+                    stageIntroAck: false
                 };
             });
             logEvent(`${_t.game?.advancedStage || '¡Avanzaste a la Etapa'} ${newStage}!`, 'success');
@@ -219,6 +249,27 @@ function createGameStore() {
 
         loadState: (loaded: GameState) => {
             state.set(loaded);
+        },
+
+        initCheck: () => {
+            const s = get(state);
+            if (!s.hasSeenWelcomeModal) {
+                showWelcomeModal.set(true);
+            }
+
+            // Detect if page was refreshed mid-game using sessionStorage
+            if (typeof window !== 'undefined') {
+                const isReturning = sessionStorage.getItem('kidia-active-session');
+                if (isReturning && !s.hasSeenWelcomeModal) {
+                    // It means they refreshed after already seeing it once in this session.
+                    // But wait, the state resets entirely because we disabled localStorage.
+                    // So let's warn them their state was dropped
+                    const _t = get(t);
+                    logEvent(_t.game?.simReset || 'Partida reseteada automáticamente al recargar la página.', 'warn');
+                } else {
+                    sessionStorage.setItem('kidia-active-session', 'true');
+                }
+            }
         }
     };
 }
