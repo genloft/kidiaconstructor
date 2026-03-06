@@ -5,6 +5,6 @@
 	"experimentalResponseStreaming": true,
 	"framework": {
 		"slug": "sveltekit",
-		"version": "2.53.4"
+		"version": "2.5.0"
 	}
 }
