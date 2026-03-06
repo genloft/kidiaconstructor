@@ -1,0 +1,12 @@
+node_modules
+.DS_Store
+
+# Directorios de build y entorno de SvelteKit
+.svelte-kit
+build
+package-lock.json
+
+# Entorno local
+.env
+.env.*
+!.env.example
